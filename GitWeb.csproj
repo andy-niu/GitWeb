@@ -58,6 +58,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Index.html" />
+    <Content Include="ResponsiveLayout\css\base.css" />
+    <Content Include="ResponsiveLayout\css\bootstrap-responsive.css" />
+    <Content Include="ResponsiveLayout\images\arrow_switch.png" />
+    <Content Include="ResponsiveLayout\images\bullet.png" />
+    <Content Include="ResponsiveLayout\images\icon-close.png" />
+    <Content Include="ResponsiveLayout\images\icon_breadcrumb.gif" />
+    <Content Include="ResponsiveLayout\images\prev_next.png" />
+    <Content Include="ResponsiveLayout\images\rating.png" />
+    <Content Include="ResponsiveLayout\images\search_icon.png" />
+    <Content Include="ResponsiveLayout\images\slider_handle.png" />
+    <Content Include="ResponsiveLayout\images\sprite.png" />
+    <Content Include="ResponsiveLayout\images\web_toolbar_bg.gif" />
+    <Content Include="ResponsiveLayout\images\x_alt.png" />
+    <Content Include="ResponsiveLayout\Index.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +84,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ResponsiveLayout\js\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
