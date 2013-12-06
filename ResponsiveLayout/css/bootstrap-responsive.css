@@ -100,6 +100,13 @@
 	-------------------------------------------------------------- */
 	.v-grid-container { display:block; }
 	.v-grid { float:inherit; display:block; width:100%; }
+
+    .header .mini-cart,.header .top-links { text-align:center; margin:10px 0 0; }
+	.dropdown ,.header .mini-cart,.header .top-links{ float:none !important; display:inline-block !important;vertical-align: top; }
+    .dropdown-toggle:hover .dropdown-menu{ display:none !important; }
+    .header-container{ border:none !important; }
+    .header-container .nav{ display:none;}
+    .header-container .menus{  display:block!important;}
 }
 
 
@@ -178,6 +185,7 @@
 	   Apply the same vertical margins, as container's side padding. */
 	.nav.has-outline > .grid-full { margin-top: 3%; margin-bottom: 3%; }
 
+
 }
 
 
@@ -208,10 +216,7 @@
 */
 
 /* width < 320px */
-@media only screen and (max-width: 319px) {
-
-		/* .container { max-width:226px; } */
-	
+@media only screen and (max-width: 319px) {	
 	.container { max-width:none !important; width:92%; padding-left:4%; padding-right:4%; }
 
 	/* Nav container with outline (if nav container has background color).

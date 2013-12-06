@@ -1,14 +1,375 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <title>Dome Responsive Layout</title>
-    <link href="css/base.css" rel="stylesheet" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link href="css/layout.css" rel="stylesheet" />
+    <script src="js/jquery.min.js" type="text/javascript" async="async"></script>
     <style type="text/css">
+        .box-shadow{ -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);}
+        .border-transt{ transition : border 250ms ease-out;-webkit-transition: border 250ms ease-out;-moz-transition: border 250ms ease-out;-o-transition: border 250ms ease-out;}
+        .item { }
+        .item .item-left { float:left; margin-right:20px; position:relative; }
+        .item .item-right { float:right; margin-left:20px;position:relative; }
+        span.icon,label.icon {vertical-align:middle;display:inline-block;width:30px;height:30px;padding:3px;}
+        label.icon.large,span.icon.large {width:50px;height:50px;padding:5px;}
 
+
+        .header-top-container{ border-top:5px solid #333; line-height:32px; }
+        
+        .caret{display:inline-block;width:0;height:0;margin-bottom:2px;vertical-align:middle;content:"";border-style:solid solid none;border-width:4px 4px 0;border-color:#333 transparent transparent}
+        .dropdown .caret{opacity:.3;filter:alpha(opacity=30)}
+        .dropdown:hover .caret{opacity:1;filter:alpha(opacity=100)}
+        .dropdown-toggle{}
+        .dropdown-toggle>.dropdown-text{ padding:0 10px;z-index: 11;background: #FFF;position: relative;}
+        .dropdown-menu{ display:none; padding:12px 16px;z-index: 10;min-width: 170px;line-height: 1.5em; position:absolute; right:0;}
+        .dropdown-menu ,.dropdown-toggle:hover{-webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);}
+        .dropdown-toggle:hover .dropdown-menu{ display:block;background: #FFF; }
+        .dropdown-menu .empty {padding: 10px 0;}
+
+
+        .header .img-logo{ padding:16px 0;}
+        .header grid12-4{ margin-left:0;}
+        .header .search{ position:relative; border:1px solid #ddd;overflow: hidden;text-overflow: ellipsis;  }
+        .header .search:hover{ border:1px solid #454545; }
+        .header .search input[type='text']{height: 18px;line-height: 18px;padding: 7px 32px 7px 7px; border:none; width: 100%;}
+        .header .search button{ width:36px;height: 32px;line-height: 32px; position:absolute; top:0; right:0; background:url(images/search_icon.png) no-repeat 10px 1px; border:none; cursor:pointer; outline:none; }
+        .header .search button:hover{ background-position:10px  -28px;}
+        .header .dropdown,.header .top-links{max-height: 3em;line-height: 3em;}
+
+        /* Cart */
+        .header .mini-cart{ float:right; clear:both; }
+        .header .mini-cart label{  cursor:pointer;}
+        .header .mini-cart .dropdown>div.dropdown-text{  z-index:9;}
+        .header .mini-cart .dropdown>div.dropdown-menu{  z-index:8;}
+
+        /* Account */
+        .header .top-links{ clear:both;  float:right; }
+        .header .top-links li{ float:left; }
+        .header .top-links li:first-child>a{ background:none;}
+        .header .top-links li>a{ padding: 0 0.6em;display: block;background: url(images/link-separator.png) no-repeat left center;}
+        .header .top-links li>a:hover{background-color: #FC5B5B;color: #FFF !important;}
+
+        /* Cart */
+        .icon.i-cart { background-image:url(images/sprite.png);background-position:-457px -7px;position: relative;top: -2px;}
+        .icon.i-cart-w { background-image:url(images/sprite.png);background-position:-457px -57px; }
+
+        .header-container{border-bottom: 1px solid #CCC; }
+        .header-container .nav{position:relative; }
+        .nav>li{ display: inline-block;line-height: 28px;line-height: 28px;padding: 3px 10px 3px;border-bottom: 2px solid rgba(0, 0, 0, 0); }
+        .nav>li>a{font-size: 14px;background: rgba(0, 0, 0, 0);text-decoration: none;text-transform: uppercase;text-shadow: 0 1px 0 #FFF;height: 100%;display: block;width: 100%;}
+        .nav>li:hover{ border-bottom: 2px solid #FC5B5B;}
+        .nav>li:hover>a{color: #FC5B5B;}
+
+        .nav li:hover .i-nav{ display:block;}
+        .nav .i-nav{ top: 37px !important;border-bottom: 1px solid #CCC;width: 96%;padding: 2%; position:absolute;left: 0; display:none; background:#fff;}
+        .i-nav .item-left{ width:70%; }
+        .i-nav .item-right{width:25%; }
+        .i-nav .item-list{ margin:10px 0 0 15px; line-height:22px; float:left; width:180px; }
+        .i-nav .item-list>dt{ text-transform:uppercase; font-size:13px; }
+        .i-nav .item-list>dd{ position:relative; padding-left:14px;}
+        .i-nav .item-list>dd:before{content: "";width: 5px;height: 5px;background: #808080;display: block;position: absolute;left: 0;top: 8px;}
+        .i-nav .item-list>dd:hover:before{ background-color: #FC5B5B;}
+
+        .nav-ad{ }
+        .nav-ad>h4{font-size: 1.6666em;line-height: 1.2em; margin:16px 0 10px; }
+        .nav-ad>p{ margin: 0 0 1em; line-height:18px;}
+
+        /* Mobile menu (vertical, in the header)*/
+        .header-container .menus{ clear:both; margin-top:10px; display:block; border:1px; background: rgba(0, 0, 0, 0.8);font-size: 16px;text-transform: uppercase; }
+        .header-container .menus{ display:none; }
+        .menus a{ color:#EAEAEA; }
+        .menus a:hover{ color:#fff;}
+        .i-menus {position:relative; padding-left:60px; }
+        .i-menus a{display:block;height:100%;padding: 15px;}
+        .i-menus:active{ background:rgba(50, 179, 240, 0.8);}
+        /* Mobile menu icon */
+        .i-menus .trigger-icon {display:block;width:23px;padding-top:18px; position:absolute; top:1px; left:20px;}
+        .i-menus .trigger-icon .line {display:block;background-color:#fff;height:3px;margin-bottom:2px;}
+        .opener {position: absolute;right: 0;top: 0;display: block;cursor: pointer;width: 49px;height: 49px;background: url(images/opener.png) center center no-repeat;}
+        .opener:hover,.opener:active{background-color: rgba(50, 179, 240, 0.8);}
+        
+        .menus-list{ display:none;}
+        .menus-list>li{padding: 15px 10px; padding-left:25px; position:relative;border-top:1px solid #303030;}
+        .menus-list>li>a{ height:100%; display:block;}
+        .menus-list .menus-list-item{ display:none;}
+
+        .index-ad{ }
+        .index-ad img{ width:100%; max-height:460px; }
+        .body{ margin:10px auto; }
+        .recommend-box{ position:relative; overflow:hidden; }
+        .recommend-box img{ width:100%; }
+        .recommend-box .mask{ position:relative;bottom: -100%;background-color: rgba(255,255,255,0.00);opacity: 1;-webkit-transition: all .5s ease-in-out;-moz-transition: all .5s ease-in-out;-ms-transition: all .5s ease-in-out;-o-transition: all .5s ease-in-out;transition: all .5s ease-in-out;background-color: rgba(255,255,255,0.90);}
+        .recommend-box:hover{ bottom: 0;}
+        .recommend-box .mask>h2{position: relative;padding-top: 15px;color: #444;text-align: center;font-weight: 300;font-size: 16px;line-height: 20px;}
+        .recommend-box .mask>p{color: #656565; margin:.65em;}
     </style>
+    <script type="text/javascript">
+        $(function () {
+            $(".i-menus").click(function () {
+                $(this).next().slideToggle();
+            })
+        })
+    </script>
 </head>
 <body>
-
+    <div class="header-top-container clearfix">
+        <div class="container">
+            <div class="grid-full item">
+                <div class="item-left">
+                    Welcome SiteName!
+                </div>
+                <div class="item-right">
+                    <div class="dropdown-toggle dropdown">
+                        <div class="dropdown-text">
+                            <label>Currency :</label> &nbsp;<label class="value">USD</label>
+                            <span class="caret">&nbsp;</span>
+                        </div>
+                        <ul class="dropdown-menu">
+	                        <li><a href="#">BRL - Brazilian Real</a></li>
+	                        <li><a href="#">GBP - British Pound Sterling</a></li>
+	                        <li><a href="#">CNY - Chinese Yuan Renminbi</a></li>
+	                        <li><a href="#">EUR - Euro</a></li>
+	                        <li><a href="#">RUB - Russian Ruble</a></li>
+	                        <li class="current">USD - US Dollar</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header container clearfix">
+        <div class="grid-full">
+            <div class="v-grid-container">
+                <div class="grid12-4 v-grid">
+                    <a href="#"><img src="images/logo.png" alt="" class="img-logo"/></a>
+                </div>
+                <div class="grid12-4 v-grid">
+                    <div class="search border-transt">
+                        <input type="text" placeholder="Search enter store here..." /><button></button>
+                    </div>
+                </div>
+                <div class="grid12-4 v-grid">
+                    <!--Cart-->
+                    <div class="mini-cart">
+                        <div class="dropdown-toggle dropdown" title="You have no items in your shopping cart.">
+                            <div class="dropdown-text">
+                                <a href="#"><label class="icon i-cart"></label><label>Cart</label> <label class="price">$0.00</label></a>
+                                <span class="caret">&nbsp;</span>
+                            </div>
+                            <div class="dropdown-menu">
+        	                    <div class="block-content-inner">
+				                    <div class="empty">You have no items in your shopping cart.</div>
+                                </div> 
+		                    </div>
+                        </div>
+                    </div>
+                    <!--Cart End-->
+                    <!--Account-->
+                    <div class="top-links">
+	                    <ul class="links">
+		                    <li class="first"><a href="#" title="Account">Account</a></li>
+		                    <li><a href="#" title="Wishlist">Wishlist</a></li>
+		                    <li><a href="#" title="Log In">Log In</a></li>
+		                    <li class=" last" id="link-sign-up"><a href="#" title="Sign Up">Sign Up</a></li>
+	                    </ul>
+                    </div>
+                    <!--Account End-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-container">
+        <div class="container clearfix">
+            <ul class="nav clearfix">
+                <li><a href="#">HOME</a></li>
+                <li>
+                    <a href="#">FOOTWEAR</a>
+                    <div class="i-nav item box-shadow">
+                        <div class="item-left">
+                            <dl class="item-list">
+	                            <dt><a href="#">FOOTWEAR MAN</a></dt>
+	                            <dd><a href="#">Nicki Minaj Wigs</a></dd>
+                                <dd><a href="#">Beyonce Knowles' Hair Style</a></dd>
+                                <dd><a href="#">Rihanna's Hair Style</a></dd>
+                                <dd><a href="#">Halle Berry's Hair Style</a></dd>
+                                <dd><a href="#">Taylor Swift</a></dd>
+                                <dd><a href="#">Jessica's Hair Style</a></dd>
+                                <dd><a href="#">Tyra's Hair Style</a></dd>
+                                <dd><a href="#">Paris Hilton's Hair Style</a></dd>
+                                <dd><a href="#">Raquel Wigs</a></dd>
+                                <dd><a href="#">Mena Suvari's Hair Style</a></dd>
+                            </dl>
+                            <dl class="item-list">
+	                            <dt><a href="#">FOOTWEAR MAN</a></dt>
+	                            <dd><a href="#">Nicki Minaj Wigs</a></dd>
+                                <dd><a href="#">Beyonce Knowles' Hair Style</a></dd>
+                                <dd><a href="#">Rihanna's Hair Style</a></dd>
+                                <dd><a href="#">Halle Berry's Hair Style</a></dd>
+                                <dd><a href="#">Taylor Swift</a></dd>
+                                <dd><a href="#">Jessica's Hair Style</a></dd>
+                                <dd><a href="#">Tyra's Hair Style</a></dd>
+                                <dd><a href="#">Paris Hilton's Hair Style</a></dd>
+                                <dd><a href="#">Raquel Wigs</a></dd>
+                                <dd><a href="#">Mena Suvari's Hair Style</a></dd>
+                            </dl>
+                            <dl class="item-list">
+	                            <dt><a href="#">FOOTWEAR MAN</a></dt>
+	                            <dd><a href="#">Nicki Minaj Wigs</a></dd>
+                                <dd><a href="#">Beyonce Knowles' Hair Style</a></dd>
+                                <dd><a href="#">Rihanna's Hair Style</a></dd>
+                                <dd><a href="#">Halle Berry's Hair Style</a></dd>
+                                <dd><a href="#">Taylor Swift</a></dd>
+                                <dd><a href="#">Jessica's Hair Style</a></dd>
+                                <dd><a href="#">Tyra's Hair Style</a></dd>
+                                <dd><a href="#">Paris Hilton's Hair Style</a></dd>
+                                <dd><a href="#">Raquel Wigs</a></dd>
+                                <dd><a href="#">Mena Suvari's Hair Style</a></dd>
+                            </dl>
+                            <dl class="item-list">
+	                            <dt><a href="#">FOOTWEAR MAN</a></dt>
+	                            <dd><a href="#">Nicki Minaj Wigs</a></dd>
+                                <dd><a href="#">Beyonce Knowles' Hair Style</a></dd>
+                                <dd><a href="#">Rihanna's Hair Style</a></dd>
+                                <dd><a href="#">Halle Berry's Hair Style</a></dd>
+                                <dd><a href="#">Taylor Swift</a></dd>
+                                <dd><a href="#">Jessica's Hair Style</a></dd>
+                                <dd><a href="#">Tyra's Hair Style</a></dd>
+                                <dd><a href="#">Paris Hilton's Hair Style</a></dd>
+                                <dd><a href="#">Raquel Wigs</a></dd>
+                                <dd><a href="#">Mena Suvari's Hair Style</a></dd>
+                            </dl>
+                        </div>
+                        <div class="item-right">
+                            <div class="nav-ad">
+                                <a href="#"><img src="images/ad/01.jpg" alt=""/></a>
+                                <h4>Featured Category</h4>
+                                <p>
+                                    This is a custom block ready to display any content. You can add blocks to any category in the catalog...
+                                </p>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </li>
+                <li><a href="#">WOMEN</a></li>
+                <li><a href="#">MAN</a></li>
+                <li><a href="#">JEWELRY SALE</a></li>
+                <li><a href="#">CUSTOM BLOCK </a></li>
+                <li><a href="#">Sale</a></li>
+            </ul>
+            <div class="menus grid-full">
+                <div class="i-menus">
+                    <span class="trigger-icon"><span class="line"></span><span class="line"></span><span class="line"></span></span>
+                    <a href="#">Menu</a>
+                </div>
+                <ul class="menus-list">
+                    <li>
+                        <a href="#">FOOTWEAR</a><span class="opener"></span>
+                        <div class="menus-list-item">
+                            <dl class="item-list">
+	                            <dt><a href="#">FOOTWEAR MAN</a></dt>
+	                            <dd><a href="#">Nicki Minaj Wigs</a></dd>
+                                <dd><a href="#">Beyonce Knowles' Hair Style</a></dd>
+                                <dd><a href="#">Rihanna's Hair Style</a></dd>
+                                <dd><a href="#">Halle Berry's Hair Style</a></dd>
+                                <dd><a href="#">Taylor Swift</a></dd>
+                                <dd><a href="#">Jessica's Hair Style</a></dd>
+                                <dd><a href="#">Tyra's Hair Style</a></dd>
+                                <dd><a href="#">Paris Hilton's Hair Style</a></dd>
+                                <dd><a href="#">Raquel Wigs</a></dd>
+                                <dd><a href="#">Mena Suvari's Hair Style</a></dd>
+                            </dl>
+                            <dl class="item-list">
+	                            <dt><a href="#">FOOTWEAR MAN</a></dt>
+	                            <dd><a href="#">Nicki Minaj Wigs</a></dd>
+                                <dd><a href="#">Beyonce Knowles' Hair Style</a></dd>
+                                <dd><a href="#">Rihanna's Hair Style</a></dd>
+                                <dd><a href="#">Halle Berry's Hair Style</a></dd>
+                                <dd><a href="#">Taylor Swift</a></dd>
+                                <dd><a href="#">Jessica's Hair Style</a></dd>
+                                <dd><a href="#">Tyra's Hair Style</a></dd>
+                                <dd><a href="#">Paris Hilton's Hair Style</a></dd>
+                                <dd><a href="#">Raquel Wigs</a></dd>
+                                <dd><a href="#">Mena Suvari's Hair Style</a></dd>
+                            </dl>
+                            <dl class="item-list">
+	                            <dt><a href="#">FOOTWEAR MAN</a></dt>
+	                            <dd><a href="#">Nicki Minaj Wigs</a></dd>
+                                <dd><a href="#">Beyonce Knowles' Hair Style</a></dd>
+                                <dd><a href="#">Rihanna's Hair Style</a></dd>
+                                <dd><a href="#">Halle Berry's Hair Style</a></dd>
+                                <dd><a href="#">Taylor Swift</a></dd>
+                                <dd><a href="#">Jessica's Hair Style</a></dd>
+                                <dd><a href="#">Tyra's Hair Style</a></dd>
+                                <dd><a href="#">Paris Hilton's Hair Style</a></dd>
+                                <dd><a href="#">Raquel Wigs</a></dd>
+                                <dd><a href="#">Mena Suvari's Hair Style</a></dd>
+                            </dl>
+                            <dl class="item-list">
+	                            <dt><a href="#">FOOTWEAR MAN</a></dt>
+	                            <dd><a href="#">Nicki Minaj Wigs</a></dd>
+                                <dd><a href="#">Beyonce Knowles' Hair Style</a></dd>
+                                <dd><a href="#">Rihanna's Hair Style</a></dd>
+                                <dd><a href="#">Halle Berry's Hair Style</a></dd>
+                                <dd><a href="#">Taylor Swift</a></dd>
+                                <dd><a href="#">Jessica's Hair Style</a></dd>
+                                <dd><a href="#">Tyra's Hair Style</a></dd>
+                                <dd><a href="#">Paris Hilton's Hair Style</a></dd>
+                                <dd><a href="#">Raquel Wigs</a></dd>
+                                <dd><a href="#">Mena Suvari's Hair Style</a></dd>
+                            </dl>
+                            <div class="clearfix"></div>
+                        </div>
+                    </li>
+                    <li><a href="#">WOMEN</a><span class="opener"></span></li>
+                    <li><a href="#">MAN</a><span class="opener"></span></li>
+                    <li><a href="#">JEWELRY SALE</a><span class="opener"></span></li>
+                    <li><a href="#">CUSTOM BLOCK </a><span class="opener"></span></li>
+                    <li><a href="#">Sale</a><span class="opener"></span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body">
+        <div class="grid-full">
+            <ul class="index-ad">
+                <li><a href="#"><img src="images/ad/all_1.jpg" alt="" /></a></li>
+            </ul>
+        </div>
+        <div class="grid12-3">
+            <div class="recommend-box">
+                <a href="#"><img src="images/ad/a1.jpg" alt="" /></a>
+                <div class="mask">
+                    <h3>Awesome Sliders</h3>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of page when looking at its layout.</p>
+                    <a class="button" href="#">Purchase Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="grid12-3">
+            <div class="recommend-box">
+                <a href="#"><img src="images/ad/a2.jpg" alt="" /></a>
+                <div class="mask">
+                    <h3>Awesome Sliders</h3>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of page when looking at its layout.</p>
+                    <a class="button" href="#">Purchase Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="grid12-3">
+            <div class="recommend-box">
+                <a href="#"><img src="images/ad/a3.jpg" alt="" /></a>
+                <div class="mask">
+                    <h3>Awesome Sliders</h3>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of page when looking at its layout.</p>
+                    <a class="button" href="#">Purchase Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -60,6 +60,7 @@
     <Content Include="Index.html" />
     <Content Include="ResponsiveLayout\css\base.css" />
     <Content Include="ResponsiveLayout\css\bootstrap-responsive.css" />
+    <Content Include="ResponsiveLayout\css\layout.css" />
     <Content Include="ResponsiveLayout\images\arrow_switch.png" />
     <Content Include="ResponsiveLayout\images\bullet.png" />
     <Content Include="ResponsiveLayout\images\icon-close.png" />
@@ -72,12 +73,15 @@
     <Content Include="ResponsiveLayout\images\web_toolbar_bg.gif" />
     <Content Include="ResponsiveLayout\images\x_alt.png" />
     <Content Include="ResponsiveLayout\Index.html" />
+    <Content Include="ResponsiveLayout\js\jquery.min.js" />
+    <Content Include="ResponsiveLayout\list.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ResponsiveLayout\font\fontawesome-webfont.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -85,9 +89,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ResponsiveLayout\js\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
