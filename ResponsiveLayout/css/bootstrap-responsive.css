@@ -107,9 +107,30 @@
     .header-container{ border:none !important; }
     .header-container .nav{ display:none;}
     .header-container .menus{  display:block!important;}
+
+    .dl-pro-rows{ width: 204px;}
+    .dl-pro-rows.nth2{ margin-left:0 }
+    .subscribe-form { float:none; margin-top:8px; }
+}
+
+/* All desktop - design for a width of 768px and wider
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+
+/* 768px <= width */
+@media only screen and (min-width: 768px) {
+	
+	/* Mobile accordion
+	-------------------------------------------------------------- */
+	.mobile-collapsible .block-content { display:block !important; } /* Always show when not on mobile */
+	.mobile-collapsible .opener { display:none !important; } /* Always hide when not on mobile */
+	.mobile-collapsible .block-title { border-bottom:none; }
 }
 
 
+/* All mobile - design for a width of less than 768px
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
 
 
 

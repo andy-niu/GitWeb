@@ -9,15 +9,6 @@
     <link href="css/layout.css" rel="stylesheet" />
     <script src="js/jquery.min.js" type="text/javascript" async="async"></script>
     <style type="text/css">
-        .box-shadow{ -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);}
-        .border-transt{ transition : border 250ms ease-out;-webkit-transition: border 250ms ease-out;-moz-transition: border 250ms ease-out;-o-transition: border 250ms ease-out;}
-        .item { }
-        .item .item-left { float:left; margin-right:20px; position:relative; }
-        .item .item-right { float:right; margin-left:20px;position:relative; }
-        span.icon,label.icon {vertical-align:middle;display:inline-block;width:30px;height:30px;padding:3px;}
-        label.icon.large,span.icon.large {width:50px;height:50px;padding:5px;}
-
-
         .header-top-container{ border-top:5px solid #333; line-height:32px; }
         
         .caret{display:inline-block;width:0;height:0;margin-bottom:2px;vertical-align:middle;content:"";border-style:solid solid none;border-width:4px 4px 0;border-color:#333 transparent transparent}
@@ -57,6 +48,7 @@
         .icon.i-cart { background-image:url(images/sprite.png);background-position:-457px -7px;position: relative;top: -2px;}
         .icon.i-cart-w { background-image:url(images/sprite.png);background-position:-457px -57px; }
 
+        /*Top Menu*/
         .header-container{border-bottom: 1px solid #CCC; }
         .header-container .nav{position:relative; }
         .nav>li{ display: inline-block;line-height: 28px;line-height: 28px;padding: 3px 10px 3px;border-bottom: 2px solid rgba(0, 0, 0, 0); }
@@ -64,7 +56,7 @@
         .nav>li:hover{ border-bottom: 2px solid #FC5B5B;}
         .nav>li:hover>a{color: #FC5B5B;}
 
-        .nav li:hover .i-nav{ display:block;}
+        .nav li:hover .i-nav{ display:block;z-index: 10;}
         .nav .i-nav{ top: 37px !important;border-bottom: 1px solid #CCC;width: 96%;padding: 2%; position:absolute;left: 0; display:none; background:#fff;}
         .i-nav .item-left{ width:70%; }
         .i-nav .item-right{width:25%; }
@@ -99,13 +91,50 @@
 
         .index-ad{ }
         .index-ad img{ width:100%; max-height:460px; }
-        .body{ margin:10px auto; }
-        .recommend-box{ position:relative; overflow:hidden; }
+        .body,.margin-tm10{ margin:10px auto; }
+        .recommend-box{ position:relative; overflow:hidden; margin-top:3.8%; position:relative; }
         .recommend-box img{ width:100%; }
-        .recommend-box .mask{ position:relative;bottom: -100%;background-color: rgba(255,255,255,0.00);opacity: 1;-webkit-transition: all .5s ease-in-out;-moz-transition: all .5s ease-in-out;-ms-transition: all .5s ease-in-out;-o-transition: all .5s ease-in-out;transition: all .5s ease-in-out;background-color: rgba(255,255,255,0.90);}
-        .recommend-box:hover{ bottom: 0;}
-        .recommend-box .mask>h2{position: relative;padding-top: 15px;color: #444;text-align: center;font-weight: 300;font-size: 16px;line-height: 20px;}
-        .recommend-box .mask>p{color: #656565; margin:.65em;}
+        .recommend-box .mask{ height: 100%; text-align:center;position:absolute;bottom: -100%;opacity: 1;-webkit-transition: all .5s ease-in-out;-moz-transition: all .5s ease-in-out;-ms-transition: all .5s ease-in-out;-o-transition: all .5s ease-in-out;transition: all .5s ease-in-out;background-color: rgba(255,255,255,0.45);}
+        .recommend-box:hover .mask{ bottom: 0;}
+        .recommend-box .mask>h3{position: relative;padding-top: 6%;color: #444;text-align: center;font-weight: 300;font-size: 16px;line-height: 20px;}
+        .recommend-box .mask>p{color: #656565; margin:1.2em .65em;}
+
+        .recommend-pro{ margin-top:2%; }
+        .recommend-pro .recommend-title{ margin-bottom: 8px;padding: 8px 0 4px;border-bottom: 1px solid #e5e5e5;line-height: 1.2222em;text-transform: uppercase;font-weight: 300;font-size: 16px; position:relative;}
+        .recommend-pro .recommend-title .carousel-action{ top:4px; right:0; width:55px;height:24px; }
+        .recommend-pro .pro-list{ }
+        
+
+        .carousel-action{ position:absolute;z-index: 8;}
+        .carousel-action .next-carousel, .carousel-action .prev-carousel
+        {
+            width: 25px;height: 25px;color: white;position: absolute;top: 0; cursor:pointer;
+            background:#e5e5e5 url(images/prev-next-bg.png) no-repeat;
+            transition: opacity 300ms ease-in-out, background-color 300ms ease-in-out, background-position 300ms ease-in-out;
+            -moz-transition: opacity 300ms ease-in-out, background-color 300ms ease-in-out, background-position 300ms ease-in-out;
+            -webkit-transition: opacity 300ms ease-in-out, background-color 300ms ease-in-out, background-position 300ms ease-in-out;
+            -o-transition: opacity 300ms ease-in-out, background-color 300ms ease-in-out, background-position 300ms ease-in-out;
+        }
+       
+        .carousel-action .prev-carousel{ left:0; background-position:6px 4px; }
+        .carousel-action .prev-carousel:hover{ background-color:#FC5B5B;  background-position:6px -20px;}
+        .carousel-action .next-carousel{ right:0; background-position:-30px 4px;}
+        .carousel-action .next-carousel:hover{ background-color:#FC5B5B;  background-position:-30px -20px;}
+
+        .carousel-action .next-carousel.disabled,.carousel-action .prev-carousel.disabled{ background-color: #eee; cursor:default;opacity: .65;}
+        .carousel-action .next-carousel.disabled:hover{ background-position:-30px 4px }
+        .carousel-action .prev-carousel.disabled:hover{background-position:6px 4px;}
+
+        .footer-container{ background:#f5f5f5 url(images/1.png);margin-top: 1%;}
+        .footer-primary{ background-color: #ffffff;margin: 20px 0;}
+        .footer-primary .item{ padding:10px;}
+        .subscribe-form { position:relative;top:4px;float: right;width: initial; }
+        .subscribe-form label{float:left;margin:0 5px 0 0;line-height:29px;font-weight:normal;position:relative;font-size: 14px;}
+        .subscribe-form .input-box{float:left;margin:0 5px 5px 0;position:relative}
+        .subscribe-form .input-box .validation-advice{padding:10px 0;margin:0;width:140%;position:absolute;top:-103%;left:-20%;text-align:center;background-color:#fff;background-color:rgba(255,255,255,0.9);z-index:1}
+        .subscribe-form .input-text{float:left;width: 200px;}
+        .subscribe-form .button{float:left;position: relative;top: -3px}
+
     </style>
     <script type="text/javascript">
         $(function () {
@@ -334,40 +363,245 @@
             </div>
         </div>
     </div>
-    <div class="container body">
+    <div class="container body clearfix">
         <div class="grid-full">
             <ul class="index-ad">
                 <li><a href="#"><img src="images/ad/all_1.jpg" alt="" /></a></li>
             </ul>
         </div>
-        <div class="grid12-3">
-            <div class="recommend-box">
-                <a href="#"><img src="images/ad/a1.jpg" alt="" /></a>
-                <div class="mask">
-                    <h3>Awesome Sliders</h3>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of page when looking at its layout.</p>
-                    <a class="button" href="#">Purchase Now</a>
+        <div class="clearfix"></div>
+        <div class="grid-full v-grid">
+            <div class="grid12-4">
+                <div class="recommend-box">
+                    <a href="#"><img src="images/ad/a1.jpg" alt="" /></a>
+                    <div class="mask">
+                        <h3>Awesome Sliders</h3>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of page when looking at its layout.</p>
+                        <a class="button" href="#">Purchase Now</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="grid12-3">
-            <div class="recommend-box">
-                <a href="#"><img src="images/ad/a2.jpg" alt="" /></a>
-                <div class="mask">
-                    <h3>Awesome Sliders</h3>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of page when looking at its layout.</p>
-                    <a class="button" href="#">Purchase Now</a>
+            <div class="grid12-4">
+                <div class="recommend-box">
+                    <a href="#"><img src="images/ad/a2.jpg" alt="" /></a>
+                    <div class="mask">
+                        <h3>Awesome Sliders</h3>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of page when looking at its layout.</p>
+                        <a class="button" href="#">Purchase Now</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="grid12-3">
-            <div class="recommend-box">
-                <a href="#"><img src="images/ad/a3.jpg" alt="" /></a>
-                <div class="mask">
-                    <h3>Awesome Sliders</h3>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of page when looking at its layout.</p>
-                    <a class="button" href="#">Purchase Now</a>
+            <div class="grid12-4">
+                <div class="recommend-box">
+                    <a href="#"><img src="images/ad/a3.jpg" alt="" /></a>
+                    <div class="mask">
+                        <h3>Awesome Sliders</h3>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of page when looking at its layout.</p>
+                        <a class="button" href="#">Purchase Now</a>
+                    </div>
                 </div>
+            </div>            
+        </div>
+        <!--New Product-->
+        <div class="grid-full recommend-pro">
+            <h3 class="recommend-title">
+                New Products
+                <div class="carousel-action">
+                    <div class="prev-carousel disabled">&nbsp;</div>
+                    <div class="next-carousel">&nbsp;</div>
+                </div>
+            </h3>
+            <div class="pro-list clearfix label-a">
+                <dl class="dl-pro-rows pro-grid">
+                    <dt><a href="#"><img src="images/product/7.jpg" alt=""/></a><span class="label-icon new-label">New!</span></dt>
+                    <dd>
+                        <label class="i-title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultrices ligula ac enim lobortis placerat. Sed eleme</a></label>
+                        <label class="i-pic"><del>$500.00</del> <b>$130.99</b></label>
+                        <p class="ratings"><span class="i-stars"><label style="width:80%"></label></span><label>1 REVIEW(S)</label></p>
+                    </dd>
+                </dl>
+                <dl class="dl-pro-rows pro-grid">
+                    <dt><a href="#"><img src="images/product/8.jpg" alt=""/></a><span class="label-icon new-label">New!</span></dt>
+                    <dd>
+                        <label class="i-title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultrices ligula ac enim lobortis placerat. Sed eleme</a></label>
+                        <label class="i-pic"><del>$500.00</del> <b>$130.99</b></label>
+                        <p class="ratings"><span class="i-stars"><label style="width:60%"></label></span><label>1 REVIEW(S)</label></p>
+                    </dd>
+                </dl>
+                <dl class="dl-pro-rows pro-grid nth2">
+                    <dt><a href="#"><img src="images/product/9.jpg" alt=""/></a><span class="label-icon new-label">New!</span></dt>
+                    <dd>
+                        <label class="i-title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultrices ligula ac enim lobortis placerat. Sed eleme</a></label>
+                        <label class="i-pic"><del>$500.00</del> <b>$130.99</b></label>
+                        <p class="ratings"><span class="i-stars"><label style="width:70%"></label></span><label>1 REVIEW(S)</label></p>
+                    </dd>
+                </dl>
+                <dl class="dl-pro-rows pro-grid">
+                    <dt><a href="#"><img src="images/product/11.jpg" alt=""/></a><span class="label-icon new-label">New!</span></dt>
+                    <dd>
+                        <label class="i-title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultrices ligula ac enim lobortis placerat. Sed eleme</a></label>
+                        <label class="i-pic"><del>$500.00</del> <b>$130.99</b></label>
+                        <p class="ratings"><span class="i-stars"><label style="width:90%"></label></span><label>1 REVIEW(S)</label></p>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <!--Sale Product-->
+        <div class="grid-full recommend-pro">
+            <h3 class="recommend-title">
+                SALE PRODUCTS
+                <div class="carousel-action">
+                    <div class="prev-carousel disabled">&nbsp;</div>
+                    <div class="next-carousel">&nbsp;</div>
+                </div>
+            </h3>
+            <div class="pro-list clearfix label-a">
+                <dl class="dl-pro-rows pro-grid">
+                    <dt><a href="#"><img src="images/product/1.jpg" alt=""/></a><span class="label-icon sale-label">New!</span></dt>
+                    <dd>
+                        <label class="i-title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultrices ligula ac enim lobortis placerat. Sed eleme</a></label>
+                        <label class="i-pic"><del>$500.00</del> <b>$130.99</b></label>
+                        <p class="ratings"><span class="i-stars"><label style="width:80%"></label></span><label>12 REVIEW(S)</label></p>
+                    </dd>
+                </dl>
+                <dl class="dl-pro-rows pro-grid">
+                    <dt><a href="#"><img src="images/product/2.jpg" alt=""/></a><span class="label-icon sale-label">New!</span></dt>
+                    <dd>
+                        <label class="i-title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultrices ligula ac enim lobortis placerat. Sed eleme</a></label>
+                        <label class="i-pic"><del>$500.00</del> <b>$130.99</b></label>
+                        <p class="ratings"><span class="i-stars"><label style="width:60%"></label></span><label>11 REVIEW(S)</label></p>
+                    </dd>
+                </dl>
+                <dl class="dl-pro-rows pro-grid nth2">
+                    <dt><a href="#"><img src="images/product/3.jpg" alt=""/></a><span class="label-icon sale-label">New!</span></dt>
+                    <dd>
+                        <label class="i-title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultrices ligula ac enim lobortis placerat. Sed eleme</a></label>
+                        <label class="i-pic"><del>$500.00</del> <b>$130.99</b></label>
+                        <p class="ratings"><span class="i-stars"><label style="width:70%"></label></span><label>18 REVIEW(S)</label></p>
+                    </dd>
+                </dl>
+                <dl class="dl-pro-rows pro-grid">
+                    <dt><a href="#"><img src="images/product/5.jpg" alt=""/></a><span class="label-icon sale-label">New!</span></dt>
+                    <dd>
+                        <label class="i-title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultrices ligula ac enim lobortis placerat. Sed eleme</a></label>
+                        <label class="i-pic"><del>$500.00</del> <b>$130.99</b></label>
+                        <p class="ratings"><span class="i-stars"><label style="width:90%"></label></span><label>22 REVIEW(S)</label></p>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="footer-container clearfix">
+        <div class="container">
+            <div class="grid-full footer-primary">
+	            <div class="item clearfix">
+		            <div class="grid12-6">
+			            <div class="social-links">
+				            <a class="first" href="http://twitter.com/infortis" title="Follow Infortis on Twitter"><span class="icon icon-hover i-twitter-w"></span></a>
+                            <a href="#" title="Join us on Facebook"><span class="icon icon-hover i-facebook-w"></span></a>
+                            <a href="#" title="Join us on Google Plus"><span class="icon icon-hover i-googleplus-w"></span></a>
+                            <a href="#" title="Youtube"><span class="icon icon-hover i-youtube-w"></span></a>
+                            <a href="#" title="Vimeo"><span class="icon icon-hover i-vimeo-w"></span></a>
+                            <a href="#" title="Wordpress"><span class="icon icon-hover i-wordpress-w"></span></a>
+                            <a href="#" title="Pinterest"><span class="icon icon-hover i-pinterest-w"></span></a>
+                            <a href="#" title="Linked in"><span class="icon icon-hover i-linkedin-w"></span></a>
+                            <a href="#" title="Blogger" class="hide-below-960"><span class="icon icon-hover i-blogger-w"></span></a>
+                            <a href="#" title="Envato marketplaces"><span class="icon icon-hover i-envato-w"></span></a>
+			            </div>
+		            </div>
+			        <div class="subscribe-form grid12-6 clearfix">
+						<label for="newsletter">Newsletter</label>
+						<div class="input-box">
+							<input type="text" name="email" id="newsletter" title="Sign up for our newsletter" class="input-text required-entry validate-email"/>
+						</div>
+						<button type="submit" title="Subscribe" class="button btn-inline"><span><span>Subscribe</span></span></button>
+		            </div>
+	            </div>
+            </div>
+            <div class="grid-full">
+	            <div class=" grid12-12">
+		            <div class="grid12-9 no-gutter">
+			            <div class="grid12-3">
+				            <div class="collapsible mobile-collapsible">
+					            <span class="opener">&nbsp;</span>
+					            <h6 class="block-title heading">Questions?</h6>
+					            <div class="block-content" style="display: none;">
+						            <ul class="bullet">
+							            <li><a href="#">Terms</a></li>
+							            <li><a href="#">Conditions</a></li>
+							            <li><a href="#">About us</a></li>
+							            <li><a href="#">Example</a></li>
+						            </ul>
+					            </div>
+				            </div>
+			            </div>
+			            <div class="grid12-3">
+				            <div class="collapsible mobile-collapsible">
+					            <span class="opener">&nbsp;</span>
+					            <h6 class="block-title heading">Shipping</h6>
+					            <div class="block-content" style="display: none;">
+						            <ul class="bullet">
+							            <li><a href="#">Delivery</a></li>
+							            <li><a href="#">Track your order</a></li>
+							            <li><a href="#">Buy gift cards</a></li>
+							            <li><a href="#">Returns</a></li>
+						            </ul>
+					            </div>
+				            </div>
+			            </div>
+			            <div class="grid12-3">
+				            <div class="collapsible mobile-collapsible">
+					            <span class="opener">&nbsp;</span>
+					            <h6 class="block-title heading">About Us</h6>
+					            <div class="block-content" style="display: none;">
+						            <ul class="bullet">
+							            <li><a href="#">Responsive</a></li>
+							            <li><a href="#">Magento themes</a></li>
+							            <li><a href="#">E-commerce</a></li>
+							            <li><a href="#">The company</a></li>
+						            </ul>
+					            </div>
+				            </div>
+			            </div>
+			            <div class="grid12-3">
+				            <div class="collapsible mobile-collapsible">
+					            <span class="opener">&nbsp;</span>
+					            <h6 class="block-title heading">News</h6>
+					            <div class="block-content" style="display: none;">
+						            <ul class="bullet">
+							            <li><a href="#">What's new</a></li>
+							            <li><a href="#">Products</a></li>
+							            <li><a href="#">Magento template</a></li>
+							            <li><a href="#">Our sites</a></li>
+						            </ul>
+					            </div>
+				            </div>
+			            </div>
+		            </div>
+		            <div class="grid12-3 no-right-gutter">
+			            <div class="collapsible mobile-collapsible">
+				            <span class="opener">&nbsp;</span>
+				            <h6 class="block-title heading">Additional Info</h6>
+				            <div class="block-content" style="display: none;">
+					            <div class="feature indent first feature-icon-hover">
+						            <span class="icon i-location-w" style="background-color: lightskyblue;"></span>
+						            <p class="no-margin">
+							            Friends Inc., 90 Bedford St<br/>
+							            New York, NY 041, USA
+						            </p>
+					            </div>
+					            <div class="feature indent feature-icon-hover">
+						            <span class="icon i-twitter-w" style="background-color: lightskyblue;"></span>
+						            <p class="no-margin">
+							            Follow us on our<br/>
+							            <a href="http://twitter.com/infortis">Twitter</a> account
+						            </p>
+					            </div>
+					            <br>
+				            </div>
+			            </div>
+		            </div>
+	            </div>
             </div>
         </div>
     </div>
