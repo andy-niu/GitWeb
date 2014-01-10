@@ -3,17 +3,102 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <title>Dome Responsive Layout</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <link href="css/layout.css" rel="stylesheet" />
     <style type="text/css">
+        .block .block-title { padding-top:7px;padding-bottom:7px;border-bottom:1px solid #e5e5e5;font-weight:normal;}
+        .block .block-title > strong,
+        .block .block-title > span {font-size: 1.5em;line-height: 1.2222em;font-family: "Bitter", georgia, serif; }
+        .block .block-title strong span { }
+        .block .block-content { }
+        .block-content .categories-tree{ line-height:2em;margin-top: 4px;}
+        .categories-tree dt{ }
+        .categories-tree dd{ transition: background-position 150ms ease-out;}
+        .categories-tree dd{ background: url(images/bullet.png) -4px 5px no-repeat;padding-left: 15px;}
+        .categories-tree dd:hover{ background-position: -1px 5px;}
+        .block .block-content .tag-text{ color: #666;line-height: 18px;padding: 10px;}
+        .col-main .sort-by{  margin-top:2.33%; }
+        .sort-by label{ display:inline-table; padding-left:8px; margin-left:8px; position:relative; border-left:2px solid #fff;}
+        .sort-by label:hover,.sort-by label.active{ border-left:2px solid #FC5B5B; }
+        .sort-by label.active a{color: #FC5B5B;}
+        .sort-by label:first-child{ margin-left:0; }
+        .sort-by label:before{ position:absolute; border-left:1px solid #222; height:12px;}
+
         
+
     </style>
 </head>
 <body>
     <div class="icon-close">&times;</div>
-    <sup>price</sup>Price<sub>price</sub>
+    <div class="container body clearfix">
+        <div class="breadcrumbs grid-full">
+            <span class="breadcrumbs-c">
+                <a href="#">Home</a> <ins></ins> <b><a href="#">Prom Dresses</a></b>
+            </span>
+            <span  class="breadcrumbs-c"></span>
+        </div>
+        <div class="col-left grid12-3 grid-col2-left grid-col2-sidebar">
+            <div class="block left-categories">
+                <div class="block-title"><span>Prom Dresses</span></div>
+                <div class="block-content">
+                    <dl class="categories-tree">
+                        <dt><b><a href="#">Prom Dresses</a></b></dt>
+                        <dd><a href="#">Cheap Prom Dresses</a></dd>
+                        <dd><a href="#">Beaded Prom Dresses</a></dd>
+                        <dd><a href="#">A-Line Prom Dresses</a></dd>
+                        <dd><a href="#">Long Prom Dresses</a></dd>
+                        <dd><a href="#">Red Prom Dresses</a></dd>
+                        <dt><b><a href="#">Evening Dresses</a></b></dt>
+                        <dt><b><a href="#">Cocktail Dresses</a></b></dt>
+                        <dt><b><a href="#">Homecoming Dresses</a></b></dt>
+                        <dt><b><a href="#">Party Accessories</a></b></dt>
+                        <dt><b><a href="#">Military Ball Dresses</a></b></dt>
+                        <dt><b><a href="#">Quinceanera Dresses</a></b></dt>
+                    </dl>
+                </div>
+                <div class="block-title"><span>Shop By</span></div>
+                <div class="block-content">
+                    <dl class="categories-tree">
+                        <dt><b>Price</b></dt>
+                        <dd><a href="#">$0.00 - $99.99</a></dd>
+                        <dd><a href="#">$100 - $199.99</a></dd>
+                        <dd><a href="#">$200.00 - $299.99</a></dd>
+                        <dd><a href="#">$300.00 - $399.99</a></dd>
+                        <dd><a href="#">$400.00 - $499.99</a></dd>
+                    </dl>
+                </div>
+                <div class="block-title"><span>Popular Tags</span></div>
+                <div class="block-content">
+                    <p class="tag-text">
+                        The <strong>Prom Dresses</strong> is hot sale. Lamistore provide you with a varity of style and prices Prom Dresses.All the cheap Prom Dresses here are of the highest quality, Free Shipping with fast shipping, without extra fees. Lower price, high quality fabric, and pleasant service, the cheap women fashion online store.Cool yourself with Lamistore.com now!
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-main grid12-9 grid-col2-main grid-col2-sidebar">
+            <div><a href="#"><img src="images/ad/magento_cat_4.jpg" alt="" /></a></div>
+            <div class="sort-by">
+                <label class="active"><a href="#">Best Selling</a> </label>
+                <label><a href="#">Newest</a> </label>
+                <label><a href="#">Low Price</a> </label>
+                <label><a href="#">High Price</a></label>
+            </div>
+            <div class="">
+                <div class=""></div>
+                <div class="pages">
+                    <ol>
+                        <li class="current">1</li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a class="next i-next" href="#" title="Next"></a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
